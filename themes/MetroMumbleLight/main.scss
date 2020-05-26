@@ -59,6 +59,9 @@ html, body {
   color: $font-color;
   font-family: $font-family;
 }
+.poster {
+  height: 200px
+}
 #container {
   height: 100%;
   overflow: hidden;
