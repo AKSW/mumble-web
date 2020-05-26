@@ -54,11 +54,13 @@ html, body {
   margin: 0;
   height: 100%
 }
-#container {
-  height: 50%;
+#container, .style-container {
   background-color: $bg-color;
   color: $font-color;
   font-family: $font-family;
+}
+#container {
+  height: 100%;
   overflow: hidden;
 }
 .channel-root-container {
