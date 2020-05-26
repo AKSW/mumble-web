@@ -51,15 +51,15 @@ $chat-bg-color: $panel-bg-color !default
 $chat-border-color: $panel-border-color !default
 
 html, body {
-  background-color: $bg-color;
-  color: $font-color;
-  font-family: $font-family;
   margin: 0;
-  overflow: hidden;
   height: 100%
 }
 #container {
   height: 50%;
+  background-color: $bg-color;
+  color: $font-color;
+  font-family: $font-family;
+  overflow: hidden;
 }
 .channel-root-container {
   text-size: 16px;

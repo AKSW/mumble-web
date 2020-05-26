@@ -35,8 +35,6 @@
     <div class="hello" data-bind="if: root">
       <div data-bind="template: {name: 'posterroster', data: root}"></div>
     </div>
-    <div id="container" style="display: none" data-bind="visible: true,
-                                                         css: { minimal: minimalView }">
       <!-- ko with: connectDialog -->
       <div class="connect-dialog dialog" data-bind="visible: visible() && !joinOnly()">
           <div id="connect-dialog_title" class="dialog-header">
@@ -175,6 +173,8 @@
           </form>
         </div>
       <!-- /ko -->
+      <div id="container" style="display: none" data-bind="visible: false,
+                                                           css: { minimal: minimalView }">
       <!-- ko with: connectionInfo -->
       <div class="connection-info-dialog dialog" data-bind="visible: visible">
         <div class="dialog-header">
