@@ -304,6 +304,7 @@ class GlobalBindings {
     this.selected = ko.observable()
     this.selfMute = ko.observable()
     this.selfDeaf = ko.observable()
+    this.showMumbleWeb = ko.observable(false)
 
     this.selfMute.subscribe(mute => {
       if (voiceHandler) {
@@ -377,7 +378,7 @@ class GlobalBindings {
         // Make sure we stay open if we're running as Matrix widget
         window.matrixWidget.setAlwaysOnScreen(true)
 
-        // Register all channels, recursively 
+        // Register all channels, recursively
         if(channelName.indexOf("/") != 0) {
           channelName = "/"+channelName;
         }
@@ -1148,4 +1149,3 @@ async function main() {
 }
 
 window.onload = main
-
