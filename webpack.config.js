@@ -1,5 +1,6 @@
 var theme = '../themes/MetroMumbleLight'
 var path = require('path');
+var webpack = require('webpack');
 
 module.exports = {
   mode: 'development',
@@ -10,7 +11,17 @@ module.exports = {
     ],
     config: './app/config.js',
     theme: './app/theme.js',
-    matrix: './app/matrix.js'
+    matrix: './app/matrix.js',
+    knockout: [
+     // Inside file below there is 'require("knockout")'
+     // invocation which webpack cannot resolve.
+     // We need to tell webpack to not to resolve that
+     // and leave 'require("knockout")' whithout any changes.
+     // By that this code will be resolved on runtime
+     // which means that we need to attach script to
+     // knockout somewhere in project.
+     "./knockout.mapping-latest.js",
+    ]
   },
   devtool: "cheap-source-map",
   output: {
@@ -18,6 +29,12 @@ module.exports = {
     chunkFilename: '[chunkhash].js',
     filename: '[name].js'
   },
+  plugins: [
+      // This tells to webpack: if you'll find
+      // somewhere in code 'require("knockout")'
+      // don't try to resolve that. Leave it as is.
+      new webpack.IgnorePlugin(/^knockout$/),
+  ],
   module: {
     rules: [
       {

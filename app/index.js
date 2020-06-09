@@ -13,6 +13,13 @@ import keyboardjs from 'keyboardjs'
 import { ContinuousVoiceHandler, PushToTalkVoiceHandler, VADVoiceHandler, initVoice } from './voice'
 import {initialize as localizationInitialize, translate} from './loc';
 
+ko.extenders.logChange = function(target, option) {
+    target.subscribe(function(newValue) {
+       console.log(option + ": " + newValue);
+    });
+    return target;
+};
+
 const dompurify = _dompurify(window)
 
 function sanitize (html) {
@@ -656,9 +663,28 @@ class GlobalBindings {
       ui.canSendMessage = () => {
         return false // TODO check for perms and implement
       }
+      // console.log("ui.description")
+      // console.log(ui.description)
+      // ui.unserText = "LSWT2020"
+      //   console.log("channel daten")
+      //   console.log(channel)
+      //   console.log(key)
       Object.entries(simpleProperties).forEach(key => {
         ui[key[1]] = ko.observable(channel[key[0]])
       })
+      console.log("ui.description");
+      console.log(ui.description);
+      console.log(ui.description());
+      ui.posterData = {};
+      try {
+        ko.mapping.fromJS(ui.description().replace(new RegExp("&quot;", 'g'), "\""), ui.posterData);
+      } catch (e) {
+        console.log(e)
+        console.log("nothing")
+      }
+      console.log(ui.posterData);
+      // console.log(ui.posterData());
+      // return "hallihallo".replace("&quot;", "\"");
       if (channel.parent) {
         ui.parent(channel.parent.__ui)
         ui.parent().channels.push(ui)
