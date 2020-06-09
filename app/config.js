@@ -28,7 +28,7 @@ window.mumbleWebConfig = {
   'defaults': {
     // Connect Dialog
     'address': window.location.hostname,
-    'port': '443',
+    'port': '8080',
     'token': '',
     'username': '',
     'password': '',

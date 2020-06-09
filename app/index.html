@@ -39,7 +39,6 @@
       </div>
     </script>
     <script type="text/html" id="posterroster">
-      Hallo
       <!-- ko foreach: channels -->
       <div class="poster" data-bind="template: {name: 'poster', data: $data}"></div>
       <!-- /ko -->
@@ -187,7 +186,7 @@
         </div>
       <!-- /ko -->
       </div>
-      <input type="checkbox" data-bind="checked:showMumbleWeb" />
+      Show mumble-web<input type="checkbox" data-bind="checked:showMumbleWeb" />
       <div id="container" style="display: none" data-bind="visible: showMumbleWeb,
                                                            css: { minimal: minimalView }">
       <!-- ko with: connectionInfo -->
