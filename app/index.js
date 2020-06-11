@@ -7,6 +7,7 @@ import WorkerBasedMumbleConnector from './worker-client'
 import BufferQueueNode from 'web-audio-buffer-queue'
 import audioContext from 'audio-context'
 import ko from 'knockout'
+import 'knockout-mapping'
 import _dompurify from 'dompurify'
 import keyboardjs from 'keyboardjs'
 
@@ -677,7 +678,7 @@ class GlobalBindings {
       console.log(ui.description());
       ui.posterData = {};
       try {
-        ko.mapping.fromJS(ui.description().replace(new RegExp("&quot;", 'g'), "\""), ui.posterData);
+        ko.mapping.fromJSON(ui.description().replace(new RegExp("&quot;", 'g'), "\""), ui.posterData);
       } catch (e) {
         console.log(e)
         console.log("nothing")
