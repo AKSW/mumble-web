@@ -27,13 +27,13 @@
       <div data-bind="
           click: $root.select,
           event: {
-            click: $root.requestMove.bind($root, $root.thisUser())
+            click: $root.joinPoster.bind($root, $root.thisUser())
           },
           css: {
           }">
         <img data-bind="attr:{src: posterData.small}" style="height: 200px; width: auto"><br/>
         <em><span data-bind="text: posterData.author"></span></em></br>
-        <strong><span data-bind="text: posterData.title"></span></strong>
+        <strong><span data-bind="text: posterData.title"></span></strong> &nbsp;(<span data-bind="text: userCount()"></span>)
         <!-- <span data-bind="text: $data.posterData.image"></span> -->
       </div>
     </script>

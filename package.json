@@ -62,6 +62,7 @@
   "optionalDependencies": {},
   "dependencies": {
     "jquery": "^3.5.1",
+    "jquery-colorbox": "^1.6.4",
     "knockout-mapping": "^2.6.0"
   }
 }

@@ -11,6 +11,7 @@ import 'knockout-mapping'
 import _dompurify from 'dompurify'
 import keyboardjs from 'keyboardjs'
 import $ from 'jquery'
+import 'jquery-colorbox'
 
 
 import { ContinuousVoiceHandler, PushToTalkVoiceHandler, VADVoiceHandler, initVoice } from './voice'
@@ -842,6 +843,12 @@ class GlobalBindings {
           })
         }
       }
+    }
+
+    this.joinPoster = (user, channel) => {
+      this.requestMove(user, channel)
+      // var closeCallback = (user, channel) => {console.log("go home"); this.requestMove(user, channel.parent())}
+      $.colorbox({href: channel.posterData.large(), maxHeight: "90%", maxWidth: "90%"}) // , onClosed: closeCallback
     }
 
     this.requestMove = (user, channel) => {
