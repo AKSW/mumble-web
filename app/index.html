@@ -34,10 +34,10 @@
             selected: $root.selected() === $data,
             currentChannel: users.indexOf($root.thisUser()) !== -1
           }">
-          <img src="https://amsl.technology/wp-content/uploads/2014/11/IMG_20141021_212618151.jpg" style="height: 200px; width: auto">
-        Poster: <span data-bind="text: name"></span>
-        <span data-bind="text: $data.posterData.title"></span>
-        <span data-bind="text: $data.posterData.image"></span>
+        <img data-bind="attr:{src: posterData.small}" style="height: 200px; width: auto"><br/>
+        <em><span data-bind="text: posterData.author"></span></em></br>
+        <strong><span data-bind="text: posterData.title"></span></strong>
+        <!-- <span data-bind="text: $data.posterData.image"></span> -->
       </div>
     </script>
     <script type="text/html" id="posterroster">

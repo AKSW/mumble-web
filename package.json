@@ -61,6 +61,7 @@
   },
   "optionalDependencies": {},
   "dependencies": {
+    "jquery": "^3.5.1",
     "knockout-mapping": "^2.6.0"
   }
 }

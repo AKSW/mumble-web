@@ -10,6 +10,8 @@ import ko from 'knockout'
 import 'knockout-mapping'
 import _dompurify from 'dompurify'
 import keyboardjs from 'keyboardjs'
+import $ from 'jquery'
+
 
 import { ContinuousVoiceHandler, PushToTalkVoiceHandler, VADVoiceHandler, initVoice } from './voice'
 import {initialize as localizationInitialize, translate} from './loc';
@@ -673,16 +675,38 @@ class GlobalBindings {
       Object.entries(simpleProperties).forEach(key => {
         ui[key[1]] = ko.observable(channel[key[0]])
       })
-      console.log("ui.description");
-      console.log(ui.description);
-      console.log(ui.description());
       ui.posterData = {};
-      try {
-        ko.mapping.fromJSON(ui.description().replace(new RegExp("&quot;", 'g'), "\""), ui.posterData);
-      } catch (e) {
-        console.log(e)
-        console.log("nothing")
+      if (ui.description) {
+        console.log("description: " + ui.name())
+        try {
+          console.log(ui.description);
+          console.log(ui.description());
+          $.ajax({
+            type: 'GET',
+            url: "http://localhost:8082/" + ui.description() + ".json",
+            dataType: 'json',
+            success: (data) => {
+              console.log("data")
+              console.log(data)
+              ui.posterData = ko.mapping.fromJS(data)
+              console.log("ui.posterData after ajax");
+              console.log(ui.posterData);
+              // Now use this data to update your view models,
+              // and Knockout will update your UI automatically
+            },
+            async: false
+          }).fail(function(jqxhr, textStatus, error ) {
+            var err = textStatus + ", " + error;
+            console.log( "Request Failed: " + err );
+          })
+        } catch (e) {
+          console.log(e)
+          console.log("nothing")
+        }
+      } else {
+        console.log("no description: " + ui.name())
       }
+      console.log("ui.posterData");
       console.log(ui.posterData);
       // console.log(ui.posterData());
       // return "hallihallo".replace("&quot;", "\"");
