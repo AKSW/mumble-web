@@ -60,7 +60,8 @@ html, body {
   font-family: $font-family;
 }
 .poster {
-  height: 200px
+  // height: 200px
+  display: inline-block;
 }
 #container {
   height: 100%;

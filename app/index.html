@@ -27,12 +27,9 @@
       <div data-bind="
           click: $root.select,
           event: {
-            contextmenu: openContextMenu,
-            dblclick: $root.requestMove.bind($root, $root.thisUser())
+            click: $root.requestMove.bind($root, $root.thisUser())
           },
           css: {
-            selected: $root.selected() === $data,
-            currentChannel: users.indexOf($root.thisUser()) !== -1
           }">
         <img data-bind="attr:{src: posterData.small}" style="height: 200px; width: auto"><br/>
         <em><span data-bind="text: posterData.author"></span></em></br>
@@ -46,7 +43,7 @@
       <!-- /ko -->
     </script>
     <div class="hello" data-bind="if: root">
-      <div data-bind="template: {name: 'posterroster', data: root}"></div>
+      <div id="postergallery" data-bind="template: {name: 'posterroster', data: root}"></div>
     </div>
     <div class="style-container">
       <!-- ko with: connectDialog -->
