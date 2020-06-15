@@ -667,31 +667,18 @@ class GlobalBindings {
       ui.canSendMessage = () => {
         return false // TODO check for perms and implement
       }
-      // console.log("ui.description")
-      // console.log(ui.description)
-      // ui.unserText = "LSWT2020"
-      //   console.log("channel daten")
-      //   console.log(channel)
-      //   console.log(key)
       Object.entries(simpleProperties).forEach(key => {
         ui[key[1]] = ko.observable(channel[key[0]])
       })
       ui.posterData = {};
       if (ui.description) {
-        console.log("description: " + ui.name())
         try {
-          console.log(ui.description);
-          console.log(ui.description());
           $.ajax({
             type: 'GET',
-            url: "http://localhost:8082/" + ui.description() + ".json",
+            url: window.mumbleWebConfig.posterData.protocol "://" + window.mumbleWebConfig.posterData.address + ":" + window.mumbleWebConfig.posterData.port + "/" + ui.name() + ".json",
             dataType: 'json',
             success: (data) => {
-              console.log("data")
-              console.log(data)
               ui.posterData = ko.mapping.fromJS(data)
-              console.log("ui.posterData after ajax");
-              console.log(ui.posterData);
               // Now use this data to update your view models,
               // and Knockout will update your UI automatically
             },
@@ -702,13 +689,10 @@ class GlobalBindings {
           })
         } catch (e) {
           console.log(e)
-          console.log("nothing")
         }
       } else {
         console.log("no description: " + ui.name())
       }
-      console.log("ui.posterData");
-      console.log(ui.posterData);
       // console.log(ui.posterData());
       // return "hallihallo".replace("&quot;", "\"");
       if (channel.parent) {

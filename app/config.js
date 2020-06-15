@@ -37,5 +37,12 @@ window.mumbleWebConfig = {
     'avatarurl': '', // download and set the user's Mumble avatar to the image at this URL
     // General
     'theme': 'MetroMumbleLight'
+  },
+  // The poster-data server
+  'posterData': {
+    // server settings
+    'protocol': 'https',
+    'address': window.location.hostname,
+    'port': '8080',
   }
 }
