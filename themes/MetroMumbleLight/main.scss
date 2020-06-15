@@ -68,29 +68,73 @@ html, body {
   overflow: hidden;
 }
 
-.Fullscreen {
-     width: 100%;
-     display: none;
-     position:fixed;
-     top:0;
-     right:0;
-     bottom:0;
-     left:0;
-     /* I made a 50% opacity black tile background for this
-     div so it would seem more... modal-y*/
-     // background: ;
+// .Fullscreen {
+//      width: 100%;
+//      display: none;
+//      position:fixed;
+//      top:0;
+//      right:0;
+//      bottom:0;
+//      left:0;
+//      /* I made a 50% opacity black tile background for this
+//      div so it would seem more... modal-y*/
+//      // background: ;
+// }
+// .Fullscreen div {
+//     width: auto;
+//     display: block;
+//     height: 100%;
+//     margin: auto;
+// }
+// .Fullscreen div img {
+//     display: block;
+//     height: 90%;
+//     margin: 0 auto;
+// }
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 20px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
-.Fullscreen div {
-    width: auto;
-    display: block;
-    height: 100%;
-    margin: auto;
+
+/* Modal Content */
+.modal-content {
+  background-color: #fefefe;
+  margin: auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
 }
-.Fullscreen div img {
-    display: block;
-    height: 90%;
-    margin: 0 auto;
+
+.modal-content > * {
+    vertical-align: top;
 }
+
+/* The Close Button */
+.close {
+  color: #aaaaaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
 .channel-root-container {
   text-size: 16px;
   margin-left: 2px;

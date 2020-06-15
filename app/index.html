@@ -38,21 +38,32 @@
         <!-- <span data-bind="text: $data.posterData.image"></span> -->
       </div>
       <!-- ko if: posterData.show !== undefined  -->
-      <div class="Fullscreen" data-bind="style: { display: posterData.show() ? 'block' : 'none' }">
-        <div>
-          <img data-bind="attr:{src: posterData.large}" style="height: 90%; width: auto"><br/>
-          <em><span data-bind="text: posterData.author"></span></em>
-          <strong><span data-bind="text: posterData.title"></span></strong> &nbsp;(<span data-bind="text: userCount()"></span>)
+      <div class="modal" data-bind="style: { display: posterData.show() ? 'block' : 'none' }">
+        <div class="modal-content">
           <span data-bind="
               click: $root.select,
               event: {
                 click: $root.leavePoster.bind($root, $root.thisUser())
               },
               css: {
-              }">leave</span>
-          <!-- ko foreach: users -->
-          <span data-bind="text: name"></span>
+              }" class="close">&times;</span>
+          <div style="display: inline-block">
+            <img data-bind="attr:{src: posterData.large}" style="max-width: 80vw; max-height: 80vh">
+          </div>
+          <div style="display: inline-block">
+          <h2 data-bind="text: posterData.title"></h2>
+          <em><span data-bind="text: posterData.author"></span></em><br/>
+          <!-- ko if: posterData.notes -->
+          <strong>Notes:</strong><p data-bind="html: posterData.notes"></p>
           <!-- /ko -->
+          <br/>
+          Viewers (<span data-bind="text: userCount()"></span>):
+          <ul>
+            <!-- ko foreach: users -->
+            <li data-bind="text: name"></li>
+            <!-- /ko -->
+          </ul>
+          </div>
         </div>
       </div>
       <!-- /ko -->
