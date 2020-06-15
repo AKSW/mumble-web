@@ -675,7 +675,7 @@ class GlobalBindings {
         try {
           $.ajax({
             type: 'GET',
-            url: window.mumbleWebConfig.posterData.protocol "://" + window.mumbleWebConfig.posterData.address + ":" + window.mumbleWebConfig.posterData.port + "/" + ui.name() + ".json",
+            url: window.mumbleWebConfig.posterData.protocol + "://" + window.mumbleWebConfig.posterData.address + ":" + window.mumbleWebConfig.posterData.port + "/" + ui.name() + ".json",
             dataType: 'json',
             success: (data) => {
               ui.posterData = ko.mapping.fromJS(data)
