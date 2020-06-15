@@ -24,6 +24,7 @@
       <div class="loading-circle" data-bind="css: { loaded: true }"></div>
     </div>
     <script type="text/html" id="poster">
+      <!-- ko if: posterData !== undefined  -->
       <div data-bind="
           click: $root.select,
           event: {
@@ -36,6 +37,26 @@
         <strong><span data-bind="text: posterData.title"></span></strong> &nbsp;(<span data-bind="text: userCount()"></span>)
         <!-- <span data-bind="text: $data.posterData.image"></span> -->
       </div>
+      <!-- ko if: posterData.show !== undefined  -->
+      <div class="Fullscreen" data-bind="style: { display: posterData.show() ? 'block' : 'none' }">
+        <div>
+          <img data-bind="attr:{src: posterData.large}" style="height: 90%; width: auto"><br/>
+          <em><span data-bind="text: posterData.author"></span></em>
+          <strong><span data-bind="text: posterData.title"></span></strong> &nbsp;(<span data-bind="text: userCount()"></span>)
+          <span data-bind="
+              click: $root.select,
+              event: {
+                click: $root.leavePoster.bind($root, $root.thisUser())
+              },
+              css: {
+              }">leave</span>
+          <!-- ko foreach: users -->
+          <span data-bind="text: name"></span>
+          <!-- /ko -->
+        </div>
+      </div>
+      <!-- /ko -->
+      <!-- /ko -->
     </script>
     <script type="text/html" id="posterroster">
       <!-- ko foreach: channels -->

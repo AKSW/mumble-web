@@ -679,6 +679,7 @@ class GlobalBindings {
             dataType: 'json',
             success: (data) => {
               ui.posterData = ko.mapping.fromJS(data)
+              ui.posterData.show = ko.observable(false)
               // Now use this data to update your view models,
               // and Knockout will update your UI automatically
             },
@@ -831,8 +832,18 @@ class GlobalBindings {
 
     this.joinPoster = (user, channel) => {
       this.requestMove(user, channel)
+      channel.posterData.show(true)
       // var closeCallback = (user, channel) => {console.log("go home"); this.requestMove(user, channel.parent())}
-      $.colorbox({href: channel.posterData.large(), maxHeight: "90%", maxWidth: "90%"}) // , onClosed: closeCallback
+      // $.colorbox({href: channel.posterData.large(), maxHeight: "90%", maxWidth: "90%"}) // , onClosed: closeCallback
+      // {href: "#" + channel.name() + "Popup", maxHeight: "90%", maxWidth: "90%"}) // , onClosed: closeCallback
+    }
+
+    this.leavePoster = (user, channel) => {
+      this.requestMove(user, channel.parent())
+      channel.posterData.show(false)
+      // var closeCallback = (user, channel) => {console.log("go home"); this.requestMove(user, channel.parent())}
+      // $.colorbox({href: channel.posterData.large(), maxHeight: "90%", maxWidth: "90%"}) // , onClosed: closeCallback
+      // {href: "#" + channel.name() + "Popup", maxHeight: "90%", maxWidth: "90%"}) // , onClosed: closeCallback
     }
 
     this.requestMove = (user, channel) => {

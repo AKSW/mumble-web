@@ -67,6 +67,30 @@ html, body {
   height: 100%;
   overflow: hidden;
 }
+
+.Fullscreen {
+     width: 100%;
+     display: none;
+     position:fixed;
+     top:0;
+     right:0;
+     bottom:0;
+     left:0;
+     /* I made a 50% opacity black tile background for this
+     div so it would seem more... modal-y*/
+     // background: ;
+}
+.Fullscreen div {
+    width: auto;
+    display: block;
+    height: 100%;
+    margin: auto;
+}
+.Fullscreen div img {
+    display: block;
+    height: 90%;
+    margin: 0 auto;
+}
 .channel-root-container {
   text-size: 16px;
   margin-left: 2px;
