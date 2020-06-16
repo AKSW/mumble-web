@@ -74,9 +74,10 @@
     </script>
     <label class="showMumbleWeb"><input type="checkbox" data-bind="checked:showMumbleWeb" /><img src="/svg/config_basic.svg" title="Show mumble-web" alt="Show mumble-web"></label>
     <div class="hello" data-bind="if: root">
+      <div style="text-align: left"><img style="height: 4em; padding-left: 1em; padding-top: 1em" src="https://lswt2020.aksw.org/wp-content/uploads/2020/03/Logo-AKSW.png" alt="AKSW"></div>
       <div style="text-align: center"><a href="https://lswt2020.aksw.org/" target="_blank"><img src="https://lswt2020.aksw.org/wp-content/uploads/2020/03/Logo_LSWT-e1591994420192.png" alt="LSWT2020"></a><br/>Poster Session</div>
       <div id="postergallery" data-bind="template: {name: 'posterroster', data: root}"></div>
-      <span>This system is using mumble. We have adapted <a href="https://github.com/Johni0702/mumble-web">mumble-web</a> for which we are very thankfull. The mumble-web fork is here: <a href="https://github.com/AKSW/mumble-web">https://github.com/AKSW/mumble-web</a> and the docker-compose setup sources here: <a href="https://github.com/AKSW/poster-lobby.compose">https://github.com/AKSW/poster-lobby.compose</a></span><br/>
+      <div style="margin: 1em">This system is using mumble. We have adapted <a href="https://github.com/Johni0702/mumble-web">mumble-web</a> for which we are very thankfull. The mumble-web fork is here: <a href="https://github.com/AKSW/mumble-web">https://github.com/AKSW/mumble-web</a> and the docker-compose setup sources here: <a href="https://github.com/AKSW/poster-lobby.compose">https://github.com/AKSW/poster-lobby.compose</a></div>
     </div>
     <div class="style-container">
       <!-- ko with: connectDialog -->
