@@ -52,21 +52,41 @@ $chat-border-color: $panel-border-color !default
 
 html, body {
   margin: 0;
-  height: 100%
+  // height: 100%
 }
 #container, .style-container {
   background-color: $bg-color;
   color: $font-color;
   font-family: $font-family;
 }
+
+#postergallery {
+  margin: 2em;
+}
+
 .poster {
-  // height: 200px
-  display: inline-block;
   cursor: help;
 }
 
+.poster.landscape {
+  width: 200px
+}
+
+.poster.portrait {
+  width: 150px
+}
+
+.posterBlock {
+  display: inline-block;
+  vertical-align: top;
+}
+
 #container {
-  height: 100%;
+  bottom: 0px;
+  top: auto;
+  position: absolute;
+  width: 100%;
+  height: 50vh;
   overflow: hidden;
 }
 
@@ -116,7 +136,6 @@ html, body {
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
-  cursor: default;
 }
 
 .modal-content img {
@@ -159,6 +178,11 @@ html, body {
   cursor: pointer;
 }
 
+.showMumbleWeb {
+  float: right;
+  cursor: pointer;
+}
+
 .channel-root-container {
   text-size: 16px;
   margin-left: 2px;
@@ -175,7 +199,7 @@ html, body {
   height: calc(98% - 38px);
 }
 .toolbar-vertical ~ .channel-root-container {
-  margin-top: 1%;
+  margin-top: .5vh;
   width: calc(59% - 6px);
   height: calc(98% - 6px);
 }
@@ -190,7 +214,7 @@ html, body {
   height: calc(98% - 38px);
 }
 .toolbar-vertical ~ .chat {
-  margin-top: 1%;
+  margin-top: .5vh;
   margin-left: 2px;
   width: calc(39% - 36px);
   height: calc(98% - 4px);
@@ -394,7 +418,7 @@ html, body {
 .toolbar-vertical {
   flex-direction: column;
   width: 36px;
-  margin-top: 1%;
+  margin-top: .5vh;
   margin-left: 4px;
   padding-top: 5px;
   float: left;

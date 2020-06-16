@@ -25,17 +25,15 @@
     </div>
     <script type="text/html" id="poster">
       <!-- ko if: posterData !== undefined  -->
-      <div data-bind="
+      <div class="poster" data-bind="
           click: $root.select,
           event: {
             click: $root.joinPoster.bind($root, $root.thisUser())
           },
-          css: {
-          }">
+          class: posterData.orientation">
         <img data-bind="attr:{src: posterData.small}" style="height: 200px; width: auto"><br/>
         <em><span data-bind="text: posterData.author"></span></em></br>
         <strong><span data-bind="text: posterData.title"></span></strong> &nbsp;(<span data-bind="text: userCount()"></span>)
-        <!-- <span data-bind="text: $data.posterData.image"></span> -->
       </div>
       <!-- ko if: posterData.show !== undefined  -->
       <div class="modal" data-bind="style: { display: posterData.show() ? 'block' : 'none' }">
@@ -71,9 +69,10 @@
     </script>
     <script type="text/html" id="posterroster">
       <!-- ko foreach: channels -->
-      <div class="poster" data-bind="template: {name: 'poster', data: $data}"></div>
+      <div class="posterBlock" data-bind="template: {name: 'poster', data: $data}"></div>
       <!-- /ko -->
     </script>
+    <label class="showMumbleWeb"><input type="checkbox" data-bind="checked:showMumbleWeb" /><img src="/svg/config_basic.svg" title="Show mumble-web" alt="Show mumble-web"></label>
     <div class="hello" data-bind="if: root">
       <div id="postergallery" data-bind="template: {name: 'posterroster', data: root}"></div>
     </div>
@@ -217,7 +216,6 @@
         </div>
       <!-- /ko -->
       </div>
-      Show mumble-web<input type="checkbox" data-bind="checked:showMumbleWeb" />
       <div id="container" style="display: none" data-bind="visible: showMumbleWeb,
                                                            css: { minimal: minimalView }">
       <!-- ko with: connectionInfo -->
