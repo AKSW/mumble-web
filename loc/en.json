@@ -10,6 +10,7 @@
     "add": "Add",
     "cancel": "Cancel",
     "connect": "Connect",
+    "description": "Please specify a username which you want to use during the poster session.",
     "error": {
       "title": "Failed to connect",
       "reason": {
@@ -74,4 +75,3 @@
     "user_message_placeholder": "Type message to user '%1' here"
   }
 }
-

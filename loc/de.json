@@ -9,6 +9,7 @@
     "remove": "Entfernen",
     "add": "Hinzufügen",
     "cancel": "Abbrechen",
-    "connect": "Verbinden"
+    "connect": "Verbinden",
+    "description": "Bitte geben Sie einen Nutzernamen an, welchen sie währen der Psoter Session verwenden möchten."
   }
 }
