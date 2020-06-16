@@ -66,14 +66,36 @@ html, body {
 
 .poster {
   cursor: help;
+  word-wrap: break-word;
+  margin: 1em;
+  margin-bottom: 2em;
+  text-align: center;
+}
+
+.poster img {
+  border: solid 1px black;
 }
 
 .poster.landscape {
-  width: 200px
+  width: 320px;
+  height: auto;
 }
 
+// 320x452
+
 .poster.portrait {
-  width: 150px
+  width: 320px;
+  height: auto;
+}
+
+.poster.landscape img {
+  width: 320px;
+  height: auto;
+}
+
+.poster.portrait img {
+  height: 320px;
+  width: auto;
 }
 
 .posterBlock {
@@ -141,6 +163,18 @@ html, body {
 .modal-content img {
   margin-right: 1em;
   margin-bottom: 1em;
+  border: solid 1px black;
+}
+
+.modal-content.portrait img {
+}
+
+.modal-content.portrait .text {
+  max-width: 50%
+}
+
+.modal-content.landscape .text {
+  max-width: 30%
 }
 
 .modal-content div ul {
