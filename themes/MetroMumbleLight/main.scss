@@ -62,7 +62,9 @@ html, body {
 .poster {
   // height: 200px
   display: inline-block;
+  cursor: help;
 }
+
 #container {
   height: 100%;
   overflow: hidden;
@@ -114,6 +116,28 @@ html, body {
   padding: 20px;
   border: 1px solid #888;
   width: 80%;
+  cursor: default;
+}
+
+.modal-content img {
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
+
+.modal-content div ul {
+  list-style: none;
+  padding: 0;
+}
+
+.modal-content div ul li {
+  padding-left: 1.3em;
+}
+
+.modal-content div ul li:before {
+  content: "\01F464";
+  display: inline-block;
+  margin-left: -1.3em;
+  width: 1.3em;
 }
 
 .modal-content > * {
