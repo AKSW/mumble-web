@@ -110,6 +110,7 @@ html, body {
   width: 100%;
   height: 50vh;
   overflow: hidden;
+  z-index: 2;
 }
 
 // .Fullscreen {
@@ -212,9 +213,15 @@ html, body {
   cursor: pointer;
 }
 
-.showMumbleWeb {
-  float: right;
+.mumbleWebControll {
+  z-index: 2;
+  background-color: white;
+  top: 1em;
+  right: 1em;
   cursor: pointer;
+  position: fixed;
+  border: solid 1px black;
+  display: inline-block;
 }
 
 .channel-root-container {

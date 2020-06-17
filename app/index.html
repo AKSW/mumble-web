@@ -72,7 +72,21 @@
       <div class="posterBlock" data-bind="template: {name: 'poster', data: $data}"></div>
       <!-- /ko -->
     </script>
-    <label class="showMumbleWeb"><input type="checkbox" data-bind="checked:showMumbleWeb" /><img src="/svg/config_basic.svg" title="Show mumble-web" alt="Show mumble-web"></label>
+    <div class="mumbleWebControll toolbar">
+      <label class="showMumbleWeb"><input type="checkbox" data-bind="checked:showMumbleWeb" /><img src="/svg/config_basic.svg" title="Show mumble-web" alt="Show mumble-web"></label><br/>
+      <img class="tb-mute" data-bind="visible: !selfMute(),
+                            click: function () { requestMute(thisUser()) }"
+                    rel="mute" src="/svg/audio-input-microphone.svg">
+      <img class="tb-unmute tb-active" data-bind="visible: selfMute,
+                            click: function () { requestUnmute(thisUser()) }"
+                    rel="unmute" src="/svg/audio-input-microphone-muted.svg">
+      <img class="tb-deaf" data-bind="visible: !selfDeaf(),
+                            click: function () { requestDeaf(thisUser()) }"
+                    rel="deaf" src="/svg/audio-output.svg">
+      <img class="tb-undeaf tb-active" data-bind="visible: selfDeaf,
+                            click: function () { requestUndeaf(thisUser()) }"
+                    rel="undeaf" src="/svg/audio-output-deafened.svg">
+    </div>
     <div class="hello" data-bind="if: root">
       <div style="text-align: left"><img style="height: 4em; padding-left: 1em; padding-top: 1em" src="https://lswt2020.aksw.org/wp-content/uploads/2020/03/Logo-AKSW.png" alt="AKSW"></div>
       <div style="text-align: center"><a href="https://lswt2020.aksw.org/" target="_blank"><img src="https://lswt2020.aksw.org/wp-content/uploads/2020/03/Logo_LSWT-e1591994420192.png" alt="LSWT2020"></a><br/>Poster Session</div>
